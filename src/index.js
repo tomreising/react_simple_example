@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './pages/App';
-import HelloPage from './pages/hello';
+import ActivityPage from './pages/activity';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/hello",
-    element: <HelloPage />,
+    path: "/activity",
+    element: <ActivityPage />,
   },
 ]);
 
