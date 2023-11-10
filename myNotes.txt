@@ -1,0 +1,87 @@
+## to create a new react project run 
+$npx create-react-app <<Path to react app>>
+
+example
+$npx create-react-app Documents/my_react_app
+
+## After creating your app project folder cd into folder and run inorder to get multipage functionality
+$ npm install react-router-dom
+
+## React functions must start with an uppercase letter
+
+## import the module into your App.js file and reference your components as "<Function_name/>"
+
+## remember in the js file you must add the export command at the bottom of the file in order to import those files into another module
+### below is an example of definint a module with funtions that can be imported into another module
+
+// module "my-module.js"
+function cube(x) {
+  return x * x * x;
+}
+
+const foo = Math.PI + Math.SQRT2;
+
+const graph = {
+  options: {
+    color: "white",
+    thickness: "2px",
+  },
+  draw() {
+    console.log("From graph draw function");
+  },
+};
+###############################
+export { cube, foo, graph };
+################################
+
+### Given the above below is how you would import it into another file
+
+###################################################
+import { cube, foo, graph } from "./my-module.js";
+###################################################
+graph.options = {
+  color: "blue",
+  thickness: "3px",
+};
+
+graph.draw();
+console.log(cube(3)); // 27
+console.log(foo); // 4.555806215962888
+
+### In order to add components into your main app add them like below
+#### in this example there is a module name "component_test.js" that is important into the main App.js file
+#### first: here is the module "component_test.js"
+
+--------------------------------------------------------------
+function Pizza() {
+    return <h1>This is my Pizza element</h1>
+};
+function alert1() {
+    alert("What's UP")
+};
+function Pizzatwo() {
+    return <button onClick={alert1}>Click me dude!!</button>
+};
+export { Pizza, Pizzatwo };
+----------------------------------------------------------------
+
+## App.js file
+
+---------------------------------------------------------------
+
+import logo from './logo.svg';
+import './App.css';
+import './component_test.js'
+import { Pizza, Pizzatwo } from './component_test.js';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello world</h1>
+      <Pizza />
+      <Pizzatwo />
+    </div>
+  );
+}
+
+export default App;
